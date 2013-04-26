@@ -10,6 +10,7 @@
 		1849213A1728EAFB00DA747E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 184921391728EAFB00DA747E /* main.cpp */; };
 		18492147172A4BA500DA747E /* btnode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18492146172A4BA500DA747E /* btnode.cpp */; };
 		1849214C172A592500DA747E /* btreememory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1849214B172A592500DA747E /* btreememory.cpp */; };
+		18492152172AD91D00DA747E /* btreedisk.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18492150172AD91D00DA747E /* btreedisk.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,6 +32,10 @@
 		184921451729C09B00DA747E /* btnode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = btnode.h; sourceTree = "<group>"; };
 		18492146172A4BA500DA747E /* btnode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = btnode.cpp; sourceTree = "<group>"; };
 		1849214B172A592500DA747E /* btreememory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = btreememory.cpp; sourceTree = "<group>"; };
+		1849214E172AD7F500DA747E /* pagemanager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pagemanager.h; sourceTree = "<group>"; };
+		18492150172AD91D00DA747E /* btreedisk.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = btreedisk.cpp; sourceTree = "<group>"; };
+		18492151172AD91D00DA747E /* btreedisk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = btreedisk.h; sourceTree = "<group>"; };
+		18492157172ADB3200DA747E /* btnodedisk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = btnodedisk.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,13 +68,33 @@
 		184921381728EAFB00DA747E /* Btree-Disk */ = {
 			isa = PBXGroup;
 			children = (
+				18492155172ADAA800DA747E /* Memory */,
+				18492153172ADA7000DA747E /* Disk */,
 				184921391728EAFB00DA747E /* main.cpp */,
+			);
+			path = "Btree-Disk";
+			sourceTree = "<group>";
+		};
+		18492153172ADA7000DA747E /* Disk */ = {
+			isa = PBXGroup;
+			children = (
+				1849214E172AD7F500DA747E /* pagemanager.h */,
+				18492150172AD91D00DA747E /* btreedisk.cpp */,
+				18492151172AD91D00DA747E /* btreedisk.h */,
+				18492157172ADB3200DA747E /* btnodedisk.h */,
+			);
+			name = Disk;
+			sourceTree = "<group>";
+		};
+		18492155172ADAA800DA747E /* Memory */ = {
+			isa = PBXGroup;
+			children = (
 				184921431728EDBC00DA747E /* btreememory.h */,
 				184921451729C09B00DA747E /* btnode.h */,
 				18492146172A4BA500DA747E /* btnode.cpp */,
 				1849214B172A592500DA747E /* btreememory.cpp */,
 			);
-			path = "Btree-Disk";
+			name = Memory;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,6 +151,7 @@
 				1849213A1728EAFB00DA747E /* main.cpp in Sources */,
 				18492147172A4BA500DA747E /* btnode.cpp in Sources */,
 				1849214C172A592500DA747E /* btreememory.cpp in Sources */,
+				18492152172AD91D00DA747E /* btreedisk.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

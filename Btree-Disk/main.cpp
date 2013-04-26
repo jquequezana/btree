@@ -8,18 +8,22 @@
 
 #include <iostream>
 #include <stdlib.h>
-#include "btreememory.h"
+#include <fstream>
+#include "btreedisk.h"
+#include "pagemanager.h"
+
 using namespace std;
-int main(int argc, const char * argv[])
-{
+int main(int argc, const char * argv[]) {
+ 
+    PageManager pg("/tmp/index.dat", 64);
     srand(1);
-    BTreeMemory<int, 3> a;
-    int limit = 100;
+    BTreeDisk<int, 850> a(pg);
+    int limit = 100000;
     for (int i = 0; i < limit; i++) {
         a.Insert(rand() % limit);
     }
-    a.Print(a.root());
-
+    a.Print();
+    
     return 0;
 }
 
