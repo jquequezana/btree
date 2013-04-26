@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1849213A1728EAFB00DA747E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 184921391728EAFB00DA747E /* main.cpp */; };
-		1849213C1728EAFB00DA747E /* Btree_Disk.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1849213B1728EAFB00DA747E /* Btree_Disk.1 */; };
+		18492147172A4BA500DA747E /* btnode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18492146172A4BA500DA747E /* btnode.cpp */; };
+		1849214C172A592500DA747E /* btreememory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1849214B172A592500DA747E /* btreememory.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -18,7 +19,6 @@
 			dstPath = /usr/share/man/man1/;
 			dstSubfolderSpec = 0;
 			files = (
-				1849213C1728EAFB00DA747E /* Btree_Disk.1 in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
@@ -27,7 +27,10 @@
 /* Begin PBXFileReference section */
 		184921361728EAFB00DA747E /* Btree-Disk */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Btree-Disk"; sourceTree = BUILT_PRODUCTS_DIR; };
 		184921391728EAFB00DA747E /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		1849213B1728EAFB00DA747E /* Btree_Disk.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = Btree_Disk.1; sourceTree = "<group>"; };
+		184921431728EDBC00DA747E /* btreememory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = btreememory.h; sourceTree = "<group>"; };
+		184921451729C09B00DA747E /* btnode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = btnode.h; sourceTree = "<group>"; };
+		18492146172A4BA500DA747E /* btnode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = btnode.cpp; sourceTree = "<group>"; };
+		1849214B172A592500DA747E /* btreememory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = btreememory.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +64,10 @@
 			isa = PBXGroup;
 			children = (
 				184921391728EAFB00DA747E /* main.cpp */,
-				1849213B1728EAFB00DA747E /* Btree_Disk.1 */,
+				184921431728EDBC00DA747E /* btreememory.h */,
+				184921451729C09B00DA747E /* btnode.h */,
+				18492146172A4BA500DA747E /* btnode.cpp */,
+				1849214B172A592500DA747E /* btreememory.cpp */,
 			);
 			path = "Btree-Disk";
 			sourceTree = "<group>";
@@ -118,6 +124,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1849213A1728EAFB00DA747E /* main.cpp in Sources */,
+				18492147172A4BA500DA747E /* btnode.cpp in Sources */,
+				1849214C172A592500DA747E /* btreememory.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,6 +224,7 @@
 				184921411728EAFB00DA747E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

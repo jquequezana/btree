@@ -7,12 +7,19 @@
 //
 
 #include <iostream>
-
+#include <stdlib.h>
+#include "btreememory.h"
+using namespace std;
 int main(int argc, const char * argv[])
 {
+    srand(1);
+    BTreeMemory<int, 3> a;
+    int limit = 100;
+    for (int i = 0; i < limit; i++) {
+        a.Insert(rand() % limit);
+    }
+    a.Print(a.root());
 
-    // insert code here...
-    std::cout << "Hello, World!\n";
     return 0;
 }
 
