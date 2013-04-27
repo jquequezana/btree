@@ -17,9 +17,8 @@ using namespace std;
 
 class PageManager : protected fstream{
 public:
-	PageManager(string file_name, int page_size) : fstream(file_name.data(), ios::in | ios::out | ios::binary )
+	PageManager(string file_name) : fstream(file_name.data(), ios::in | ios::out | ios::binary )
 	{
-        pageSize = page_size;
         empty = false;
         fileName = file_name;
         if(!good()) {
@@ -79,7 +78,6 @@ public:
     
 private:
 	string fileName;
-    int pageSize;
     bool empty;
     long page_id_count;
     

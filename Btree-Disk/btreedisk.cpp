@@ -10,6 +10,7 @@
 
 template <class T, int ORDER>
 BTreeDisk<T, ORDER>::BTreeDisk(PageManager& page_manager) : page_manager_(page_manager) {
+    order_ = ORDER;
     page_manager_.recover(0, header_);
     page_manager_.recover(1, root_);
     if (page_manager_.is_empty()) {
@@ -34,7 +35,7 @@ int BTreeDisk<T, ORDER>::Insert (const T& value, long page_index) {
     Node node;
     ReadNode(page_index, node);
     int index = 0;
-    while(index < node.count && node.data[index] < value) {
+    while (index < node.count && node.data[index] < value) {
         index++;
     }
     if (node.children[index] != 0) {
@@ -56,7 +57,7 @@ void BTreeDisk<T, ORDER>::InsertDataInNode (const T& value, int index, Node& nod
     while (i > index) {
         node.data[i] = node.data[i - 1];
         node.children[i + 1] = node.children[i];
-        i--;
+        --i;
     }
     node.data[i] = value;
     node.children[i + 1] = node.children[i];
@@ -84,11 +85,11 @@ void BTreeDisk<T, ORDER>::SplitRoot () {
     child_one.children[i] = node_in_overflow.children[iter];
     child_two.next = node_in_overflow.next;
     
-    if (child_one.children[0] == 0)  { // isleaf
+    if (child_one.children[0] == 0)  {
         child_one.next = child_two.page_index;
     }
     else {
-        iter++; // the middle element
+        iter++;
     }
     for (i = 0; iter < order_ + 1; i++) {
         child_two.children[i] = node_in_overflow.children[iter];
@@ -133,18 +134,17 @@ void BTreeDisk<T, ORDER>::SplitNode (Node& node, int index) {
     
     child_two.next = node_in_overflow.next;
     
-    if (child_one.children[0] == 0)  { // isleaf
+    if (child_one.children[0] == 0)  {
         child_one.next = child_two.page_index;
     }
     else {
-        iter++; // the middle element
+        iter++;
     }
     
     for (i = 0; iter < order_ + 1; i++) {
         child_two.children[i] = node_in_overflow.children[iter];
         child_two.data[i] = node_in_overflow.data[iter];
         child_two.count++;
-        
         iter++;
     }
     child_two.children[i] = node_in_overflow.children[iter];
@@ -158,12 +158,16 @@ void BTreeDisk<T, ORDER>::SplitNode (Node& node, int index) {
     WriteNode(child_two.page_index, child_two);
 }
 
+
 template <class T, int ORDER>
 typename BTreeDisk<T, ORDER>::Node BTreeDisk<T, ORDER>::CreateNode() {
-    header_++;
-    page_manager_.save(0, header_);
+    // Incrementar el header (se agrega un nuevo elemento)
+    header_++;                      // Incrementando el header en memoria
+    page_manager_.save(0, header_); // Guardando header en disco
+    
+    // Creando un nuevo nodo en memoria
     Node new_node;
-    new_node.page_index = header_;
+    new_node.page_index = header_;  // El indice del nuevo nodo es el tamano de la estructura
     return new_node;
 }
 
@@ -184,21 +188,28 @@ void BTreeDisk<T, ORDER>::ReadNode (long page_index, Node& node) {
 }
 
 
+/*
+ * Iterators
+ */
+
 template <class T, int ORDER>
-void BTreeDisk<T, ORDER>::Print(long page_index) {
+typename BTreeDisk<T, ORDER>::iterator BTreeDisk<T, ORDER>::begin () {
     Node node;
-    ReadNode(page_index, node);
-    if (page_index) {
-        int i;
-        Print(node.children[0]);
-        for (i = 0; i < node.count; i++) {
-            std::cout << node.data[i] << " ";
-            Print(node.children[i+1]);
-        }
-        
+    ReadNode(root_.page_index, node);
+    // Going to the leaf ... left;
+    while (node.children[0] != 0) {
+        ReadNode(node.children[0], node);
     }
+    iterator itbegin(node, &page_manager_);
+    return itbegin;
 }
 
+template <class T, int ORDER>
+typename BTreeDisk<T, ORDER>::iterator BTreeDisk<T, ORDER>::end () {
+    Node node_end;
+    iterator itend(node_end, &page_manager_);
+    return itend;
+}
 
 
 #endif

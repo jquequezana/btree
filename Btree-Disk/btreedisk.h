@@ -11,17 +11,22 @@
 
 #include "pagemanager.h"
 #include "btnodedisk.h"
+#include "iteratorbptree.h"
 
 template <class T, int ORDER>
 class BTreeDisk {
 public:
+    typedef T Type;
     typedef BTNodeDisk<T, ORDER> Node;
+    typedef BTreeDisk<T, ORDER> Self;
     typedef long Header;
-    
+    typedef IteratorBPTree<Self> iterator;
+ 
     BTreeDisk(PageManager& page_manager);    
     void Insert (const T& value);
     void Print (long page_index = 1);
-
+    iterator begin();
+    iterator end();
     
 private:
     Node CreateNode();
@@ -32,11 +37,11 @@ private:
     bool NodeIsOverflow (Node& node);
     void WriteNode (long page_index,  Node& node_data);
     void ReadNode (long page_index, Node& node_data);
-        
+    
     Header header_;
     Node root_;
     PageManager& page_manager_;
-    int order_ = ORDER;
+    int order_;
 };
 
 #include "btreedisk.cpp"

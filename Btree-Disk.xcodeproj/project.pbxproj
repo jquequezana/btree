@@ -11,6 +11,7 @@
 		18492147172A4BA500DA747E /* btnode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18492146172A4BA500DA747E /* btnode.cpp */; };
 		1849214C172A592500DA747E /* btreememory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1849214B172A592500DA747E /* btreememory.cpp */; };
 		18492152172AD91D00DA747E /* btreedisk.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18492150172AD91D00DA747E /* btreedisk.cpp */; };
+		18ADF782172B407F00BE6D6A /* iteratorbptree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18ADF780172B407F00BE6D6A /* iteratorbptree.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -36,6 +37,8 @@
 		18492150172AD91D00DA747E /* btreedisk.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = btreedisk.cpp; sourceTree = "<group>"; };
 		18492151172AD91D00DA747E /* btreedisk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = btreedisk.h; sourceTree = "<group>"; };
 		18492157172ADB3200DA747E /* btnodedisk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = btnodedisk.h; sourceTree = "<group>"; };
+		18ADF780172B407F00BE6D6A /* iteratorbptree.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = iteratorbptree.cpp; sourceTree = "<group>"; };
+		18ADF781172B407F00BE6D6A /* iteratorbptree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iteratorbptree.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +85,8 @@
 				18492150172AD91D00DA747E /* btreedisk.cpp */,
 				18492151172AD91D00DA747E /* btreedisk.h */,
 				18492157172ADB3200DA747E /* btnodedisk.h */,
+				18ADF780172B407F00BE6D6A /* iteratorbptree.cpp */,
+				18ADF781172B407F00BE6D6A /* iteratorbptree.h */,
 			);
 			name = Disk;
 			sourceTree = "<group>";
@@ -152,6 +157,7 @@
 				18492147172A4BA500DA747E /* btnode.cpp in Sources */,
 				1849214C172A592500DA747E /* btreememory.cpp in Sources */,
 				18492152172AD91D00DA747E /* btreedisk.cpp in Sources */,
+				18ADF782172B407F00BE6D6A /* iteratorbptree.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

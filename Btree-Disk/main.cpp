@@ -14,16 +14,17 @@
 
 using namespace std;
 int main(int argc, const char * argv[]) {
- 
-    PageManager pg("/tmp/index.dat", 64);
     srand(1);
-    BTreeDisk<int, 850> a(pg);
-    int limit = 100000;
+    PageManager pg("/tmp/index.dat");
+    BTreeDisk<int, 3> bt(pg);
+    int limit = 200;
     for (int i = 0; i < limit; i++) {
-        a.Insert(rand() % limit);
+        bt.Insert(rand() % limit);
     }
-    a.Print();
-    
+
+    BTreeDisk<int, 3>::iterator it;
+    for (it = bt.begin(); it != bt.end(); it++) {
+        cout << *it << endl;
+    }
     return 0;
 }
-
